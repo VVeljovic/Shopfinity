@@ -14,10 +14,10 @@ namespace BasketAPI.Basket.GetBasket
 
                 return Results.Ok(result);
             })
-            .WithName("GetProductById")
+            .WithName("GetBasketByUsername")
             .Produces<GetBasketQueryResponse>(StatusCodes.Status200OK)
             .ProducesProblem(StatusCodes.Status400BadRequest)
-            .WithSummary("Get Product by Id");
+            .WithSummary("Get Basket by Username");
              
         }
     }
