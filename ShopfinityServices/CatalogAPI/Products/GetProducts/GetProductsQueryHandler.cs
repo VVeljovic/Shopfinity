@@ -13,14 +13,14 @@ namespace CatalogAPI.Products.GetProducts
             var pagedList = await session.Query<Product>()
                 .ToPagedListAsync(request.PageNumber, request.PageSize);
 
-            if(pagedList.Count == 0)
+            if (pagedList.Count == 0)
             {
                 throw new NotFoundException("No products exist.");
             }
 
             var response = new GetProductsResponse(pagedList.ToList());
 
-            
+
             return response;
         }
     }

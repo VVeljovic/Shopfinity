@@ -9,17 +9,17 @@ namespace CatalogAPI.Products.GetProducgByCategoryName
     {
         public async Task<List<Product>> Handle(GetProductsByCategoryNameQuery request, CancellationToken cancellationToken)
         {
-            var productsDB =  await session.Query<Product>()
+            var productsDB = await session.Query<Product>()
                 .Where(x => x.Category.Contains(request.CategoryName))
                 .ToListAsync();
-                
-            if(productsDB.Count == 0)
+
+            if (productsDB.Count == 0)
             {
                 throw new NotFoundException("Products for this category name do not exist");
             }
 
             return productsDB.ToList();
- 
+
         }
     }
 }
